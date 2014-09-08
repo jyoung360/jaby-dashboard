@@ -1,0 +1,74 @@
+<% include header %>
+<div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="#">Jenkins Management</a>
+        </div>
+        <div class="navbar-collapse collapse">
+          <ul class="nav navbar-nav navbar-right">
+            <li><a href="#">Dashboard</a></li>
+            <li><a href="#">Settings</a></li>
+            <li><a href="#">Profile</a></li>
+            <li><a href="#">Help</a></li>
+          </ul>
+          <form class="navbar-form navbar-right">
+            <input type="text" class="form-control" placeholder="Search...">
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-sm-3 col-md-2 sidebar">
+          <ul class="nav nav-sidebar">
+            <li ng-repeat="application in applications"><a href="/jenkins/{{application.name}}">{{application.name}}</a></li>
+          </ul>
+        </div>
+        <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+          <form class="form-horizontal" role="form">
+            <div class="form-group">
+              <label for="pavexpress_sha" class="col-sm-2 control-label">PaveXpress SHA</label>
+              <div class="col-sm-10">
+                <input type="text" class="form-control" ng-model="deploy.PAVEXPRESS_SHA">
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="aruba_sha" class="col-sm-2 control-label">Aruba SHA</label>
+              <div class="col-sm-10">
+                <input type="text" class="form-control" ng-model="deploy.ARUBA_SHA">
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="aruba_sha" class="col-sm-2 control-label">Root Database Password</label>
+              <div class="col-sm-10">
+                <input type="password" class="form-control" ng-model="deploy.RootDbPassword">
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="aruba_sha" class="col-sm-2 control-label">App Database Password</label>
+              <div class="col-sm-10">
+                <input type="password" class="form-control" ng-model="deploy.UserDbPassword">
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="aruba_sha" class="col-sm-2 control-label">SMTP Password</label>
+              <div class="col-sm-10">
+                <input type="password" class="form-control" ng-model="deploy.SmtpPassword">
+              </div>
+            </div>
+            <div class="form-group">
+              <div class="col-sm-offset-2 col-sm-10">
+                <button type="submit" ng-click="deploy(deploy)" class="btn btn-default">Deploy</button>
+              </div>
+            </div>
+          </form>
+      </div>
+    </div>
+<% include footer %>
